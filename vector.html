@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Album</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #081828, #0a1d33, #0c213d);
+            color: #ffffff;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 60px;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(6px);
+        }
+
+        nav .logo {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        nav .links a {
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 500;
+            color: #cfd9e3;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            transition: 0.3s ease;
+        }
+
+        nav .links a:hover {
+            background: #00c8ff;
+            color: #000000;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            color: #00c8ff;
+            margin-top: 50px;
+        }
+
+        p.description {
+            text-align: center;
+            margin-top: -10px;
+            font-size: 18px;
+            color: #b9c5d3;
+        }
+
+        .back-btn {
+            display: block;
+            margin: 20px auto;
+            width: fit-content;
+            padding: 12px 25px;
+            border: 2px solid #00c8ff;
+            color: #00c8ff;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #00c8ff;
+            color: #000;
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            margin: 50px auto;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+            padding: 0 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(0, 200, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">My Gallery</div>
+        <div class="links">
+            <a href="Index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <h1>Vector Art</h1>
+
+    <p class="description">Vector Art Collection</p>
+
+    <a href="grapic.html" class="back-btn">← Back to All Albums</a>
+
+    <div class="gallery">
+        <img src="D:\uom\vector\WhatsApp Image 2025-11-21 at 20.11.09_67cc0288.jpg" alt="photo">
+        <img src="D:\uom\vector\WhatsApp Image 2025-11-21 at 20.11.09_e93aa32d.jpg" alt="photo">
+        <img src="D:\uom\vector\WhatsApp Image 2025-11-21 at 20.11.19_0c1a9cd7.jpg" alt="photo">
+        <img src="D:\uom\vector\WhatsApp Image 2025-11-21 at 20.11.27_0226c300 - Copy.jpg" alt="photo">
+        <img src="D:\uom\vector\WhatsApp Image 2025-11-21 at 20.11.27_0226c300.jpg" alt="photo">
+        <img src="D:\uom\vector\WhatsApp Image 2025-11-21 at 20.11.27_c88907fe.jpg" alt="photo">
+      
+    </div>
+
+</body>
+</html>
