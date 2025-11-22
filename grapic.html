@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic Designer - Gimhan Inupa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* 🔵 Updated background to match your first screenshot */
+            background: linear-gradient(135deg, #0a1628 0%, #0d1b33 40%, #081a2e 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 50px;
+            background: rgba(10, 22, 40, 0.7);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #00d4ff;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00d4ff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            font-size: 58px;
+            font-weight: 700;
+            color: #19bfe0;
+            margin-top: 140px;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Albums Section */
+        .albums-section {
+            padding: 0 60px;
+            margin-top: 80px;
+            margin-bottom: 100px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-heading {
+            font-size: 42px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .section-underline {
+            width: 120px;
+            height: 4px;
+            background: #18b1f8;
+            margin-bottom: 40px;
+        }
+
+        /* Albums Grid */
+        .albums-grid {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .album-card {
+            width: 320px;
+            height: 420px;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #111;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .album-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(231, 76, 76, 0.3);
+            border: 2px solid #28ced6;
+        }
+
+        .album-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .album-card:hover .album-image {
+            transform: scale(1.05);
+        }
+
+        .album-content {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            z-index: 2;
+        }
+
+        .album-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .album-count {
+            font-size: 14px;
+            color: #b0b0b0;
+        }
+
+        /* Placeholder */
+        .album-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(231, 76, 76, 0.2) 0%, rgba(0, 212, 255, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+        }
+
+        .album-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Back Button */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            margin-left: 60px;
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            color: #4cd0e7;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a2d4d 0%, #0f1f35 100%);
+            margin: 10% auto;
+            padding: 40px;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 15px;
+            color: #fff;
+            border: 2px solid #4cdae7;
+        }
+
+        .close {
+            color: #4ce7e2;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px 30px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-title {
+                font-size: 36px;
+                margin-top: 80px;
+            }
+
+            .albums-section {
+                padding: 0 20px;
+            }
+
+            .albums-grid {
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .album-card {
+                width: 280px;
+                height: 380px;
+            }
+
+            .back-link {
+                margin-left: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">Portfolio.</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="TELE.html">Project</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div style="padding: 0 60px;">
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <!-- Page Title -->
+    <h1 class="page-title">Graphic Designer</h1>
+
+    <!-- Albums Section -->
+    <section class="albums-section">
+        <h2 class="section-heading">My Albums</h2>
+        <div class="section-underline"></div>
+
+        <div class="albums-grid">
+
+            <!-- Album 1 -->
+            <div class="album-card" onclick="viewAlbum('Logo Design', '20 professional logo designs including brand identities.')">
+                <div class="album-placeholder">
+                    <img src="D:/uom/photo/1.jpg">
+                </div>
+                <div class="album-content">
+                   
+                    <p class="album-count">20 Designs</p>
+                     <a href="flyer.html"><h3 class="album-title">Logo Design</h3></a>
+                </div>
+            </div>
+
+            <!-- Album 2 -->
+            <div class="album-card" onclick="viewAlbum('Flyers & Brochures', '15 creative flyer designs.')">
+                <div class="album-placeholder">
+                    <img src="D:/uom/flyer/g.jpg">
+                </div>
+                <div class="album-content">
+                   
+                    <p class="album-count">15 Designs</p>
+                     <a href="logo.html"><h3 class="album-title">Flyers</h3></a>
+                </div>
+            </div>
+
+            <!-- Album 3 -->
+            <div class="album-card" onclick="viewAlbum('Vector Art', '12 vector illustrations.')">
+                <div class="album-placeholder">
+                    <img src="D:/uom/vector/WhatsApp Image 2025-11-21 at 20.11.27_0226c300 - Copy.jpg">
+                </div>
+                <div class="album-content">
+                    
+                    <p class="album-count">12 Designs</p>
+                    <a href="vector.html"><h3 class="album-title">Vector Art</h3></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="albumModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Album Title</h2>
+            <p id="modalDescription">Album description will appear here.</p>
+            <button class="modal-btn" onclick="alert('View full album')">View Full Album</button>
+        </div>
+    </div>
+
+    <script>
+        function viewAlbum(title, description) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDescription').textContent = description;
+            document.getElementById('albumModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('albumModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('albumModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>
