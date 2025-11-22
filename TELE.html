@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Malindu Kanishka</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #06121F 0%, #081B2D 100%);
+            color: #fff;
+        }
+
+        /* NEW GLASS NAVIGATION */
+        nav {
+            width: 100%;
+            padding: 25px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(6, 18, 31, 0.7);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo img {
+            height: 45px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #B8D8F5;
+            font-weight: 500;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00CFFF;
+        }
+
+        /* Highlight active page */
+        .active {
+            color: #00CFFF !important;
+        }
+
+        /* SETTINGS BUTTON */
+        .settings-btn {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #B8D8F5;
+            transition: 0.3s;
+        }
+
+        .settings-btn:hover {
+            background: rgba(255,255,255,0.18);
+        }
+
+        /* SECTION TITLES */
+        h2.section-title {
+            text-align: center;
+            font-size: 48px;
+            margin: 60px 0 40px;
+            color: #00d4ff;
+        }
+
+        /* SKILLS SECTION */
+        .skills-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            justify-items: center;
+        }
+
+        .skill { text-align: center; }
+
+        .circle {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 10px solid #00d4ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin: auto;
+        }
+
+        /* CERTIFICATIONS */
+        .cert-section {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .cert-card {
+            background: #111820;
+            border-radius: 12px;
+            padding-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid #0d2d35;
+            text-align: center;
+        }
+
+        .cert-card img {
+            width: 100%;
+            display: block;
+        }
+
+        .cert-card h3 {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #00d4ff;
+        }
+
+        .cert-card p { color: #9db3c7; }
+
+        .cert-card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 18px;
+            background: #00d4ff;
+            color: #000;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* EXPERIENCE */
+        .experience-box {
+            max-width: 900px;
+            margin: 60px auto;
+            background: #111820;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #00d4ff;
+        }
+
+        .experience-box h3 {
+            color: #00d4ff;
+            font-size: 26px;
+        }
+
+        .experience-box ul {
+            margin-top: 15px;
+            line-height: 1.7;
+            color: #9db3c7;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: #111820;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #0d2d35;
+            transition: .3s;
+        }
+
+        .project-card img {
+            width: 100%;
+            display: block;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h4 {
+            color: #00d4ff;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .project-content p { color: #9db3c7; }
+    </style>
+</head>
+<body>
+
+    <!-- NEW HEADER -->
+    <nav>
+        <div class="logo">
+           <div class="logo">MALINDU.</div>
+        </div>
+
+        <ul>
+            <li><a href="Index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="grapic.html">Graphic Designer</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="settings-btn">
+            <i class="fa-solid fa-gear"></i>
+        </div>
+    </nav>
+
+    <!-- SECTIONS BELOW -->
+
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-container">
+        <div class="skill"><div class="circle">50%</div><p>Python</p></div>
+        <div class="skill"><div class="circle">85%</div><p>Networking</p></div>
+        <div class="skill"><div class="circle">95%</div><p>Embedded Systems</p></div>
+        <div class="skill"><div class="circle">70%</div><p>JavaScript</p></div>
+        <div class="skill"><div class="circle">60%</div><p>Git / GitHub</p></div>
+        <div class="skill"><div class="circle">85%</div><p>HTML,css</p></div>
+        <div class="skill"><div class="circle">90%</div><p>Telecommunication</p></div>
+        <div class="skill"><div class="circle">95%</div><p>Autocad</p></div>
+    </div>
+
+    <h2 class="section-title">Licenses & Certifications</h2>
+    <div class="cert-section">
+        <div class="cert-grid">
+            <div class="cert-card">
+                <img src="CertificateOfCompletion_Cisco Networking Foundations Fundamentals of Cisco Networking_page-0001.jpg" />
+                <h3>Cisco Networking Foundations:
+Fundamentals of Cisco Networking</h3>
+                <p>Linkedin learning</p>
+                <a href="https://www.linkedin.com/learning/certificates/67dd8994f6e405e778c931f209cbba08af8374c106bd2e5cf702efd3fe24958c?trk=share_certificate">View Credential</a>
+            </div>
+            <div class="cert-card">
+                <img src="CertificateOfCompletion_Introduction to Telecommunications Standards Networks and Innovations_page-0001.jpg" />
+                <h3>Introduction to Telecommunications:
+Standards, Networks, and Innovations</h3>
+                <p>Linkedin learning</p>
+                <a href="https://www.linkedin.com/learning/certificates/70089be2856f2e3e0af67039979113e5482f3f94d28c6dae151fa5a4d6ff08bf?trk=share_certificate">View Credential</a>
+            </div>
+            <div class="cert-card">
+                <img src="CertificateOfCompletion_Networking Foundations Protocols and CLI Tools_page-0001.jpg" />
+                <h3>Networking Foundations: Protocols
+and CLI Tools</h3>
+                <p>Linkedin learning</p>
+                <a href="https://www.linkedin.com/learning/certificates/3ad20fa724606249d315c862022d789fd7b0260d2f1e9fac8bc4aad1628c7a69?trk=share_certificate">View Credential</a>
+            </div>
+            <div class="cert-card">
+                <img src="CertificateOfCompletion_Project Management Foundations (1)_page-0001.jpg" />
+                <h3>Project Management Foundations</h3>
+                <p>Linkedin learning</p>
+                <a href="https://www.linkedin.com/learning/certificates/0d180dbe91074345d05ebdde9601c150d11ba4697451686a618e79a555141e08?trk=share_certificate">View Credential</a>
+            </div>
+             <div class="cert-card">
+                <img src="CertificateOfCompletion_Project Management Foundations (2)_page-0001.jpg" />
+                <h3>Project Management Foundations</h3>
+                <p>Linkedin learning/NASBA</p>
+                <a href="https://www.linkedin.com/learning/certificates/b6e7345f233c541cdc8d81d519d7657862937d927d6311739a430f94db33caf9?trk=share_certificate">View Credential</a>
+            </div>
+            
+          
+        </div>
+        </body><div></div>
+    </body>
+    </div>
+
+    <h2 class="section-title">Experience</h2>
+    <div class="experience-box">
+        <h3>Information & Communication Technician (Intern) – Kurunegala Provincial Council Auditorium</h3>
+        <ul>
+                <li>Maintain and troubleshoot audio/visual communication systems.</li>
+                <li>Support network infrastructure and connectivity.</li>
+                <li>Install and configure ICT equipment for events and conferences.</li>
+            </ul>
+<br>
+
+              <h3>Telecommunications Engineering Student</strong> – Undergraduate </h3>
+         <ul>
+                <li>Focus on network design, embedded systems, and signal processing.</li>
+                <li>Gain hands-on experience with microcontrollers and communication systems.</li>
+            </ul>
+    </div>
+
+ 
+
+
+
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <img src="ideal-body-weight.jpg" />
+            <div class="project-content">
+                <a href="https://github.com/Malindu200111/Ideal-Body-Weight-Calculator-in-Java"><h4>Ideal Body Weight Calculator</h4></a>
+               <ul> 
+                <li>A web-based tool that calculates ideal body weight using height, gender, and body type.</li>
+
+<LI>Built with HTML, CSS, and JavaScript for a simple interactive interface.</LI>
+
+<li>Provides personalized health recommendations based on the result.</li>
+</ul>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="embedded-systems_DigiProces.webp" />
+            <div class="project-content">
+                <a href="https://github.com/Malindu200111/Water-Level-Indicator-"><h4>Water Level Indicator </h4></a>
+                  <ul>
+            <li>An IoT/embedded system project that monitors water levels in real-time.</li>
+            <li>Uses sensors to detect water height and displays the level on an LCD or app.</li>
+            <li>Can trigger alarms or control pumps automatically.</li>
+        </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
